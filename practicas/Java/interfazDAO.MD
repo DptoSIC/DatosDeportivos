@@ -1,5 +1,5 @@
 # Interfaz DAO
-La interfaz DAO viene con su acrónimo que significa _"Data Access Object"_.
+La interfaz [DAO viene con su acrónimo que significa _"Data Access Object"_](https://es.wikipedia.org/wiki/Objeto_de_acceso_a_datos).
 Este tipo de interfaces surgen de la necesidad de obtener datos de distintas fuentes que necesitan distintas implementaciones, pero usando un mismo comportamiento declarado en el interfaz DAO.
 
 Se debe declarar la interfaz `EventoDAO` con los siguientes métodos:
