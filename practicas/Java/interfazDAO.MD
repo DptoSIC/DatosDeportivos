@@ -14,7 +14,7 @@ public interface EventoDAO {
 
     Collection<? extends Evento> getEventos();
     Collection<? extends Evento> getEventos(Date fecha);
-    <T extends Evento> T boolean guardarEvento(T evento);
+    <T extends Evento> int guardarEventos(T... eventos);
     <T extends Evento> T removeEvento(T evento);
     <T extends Evento> boolean actualizarEvento(T evento);
     
