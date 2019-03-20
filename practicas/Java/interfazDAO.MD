@@ -3,11 +3,11 @@ La interfaz [DAO viene con su acrónimo que significa _"Data Access Object"_](ht
 Este tipo de interfaces surgen de la necesidad de obtener datos de distintas fuentes que necesitan distintas implementaciones, pero usando un mismo comportamiento declarado en el interfaz DAO.
 
 Se debe declarar la interfaz `EventoDAO` con los siguientes métodos tipicos de un CRUD:
-1. `Collection<Evento> getEventos()`: devolverá todos los eventos.
-1. `Collection<Evento> getEventos(Date fecha)`: devolverá todos los eventos para la fecha pedida
-1. `boolean guardarEvento(Evento evento)`: almacenará el evento pasado. Devolverá `true` si la operación de guardado finalizó con éxito.
-1. `Evento removeEvento(Evento evento)`: borrará el evento pasado. Devolverá el evento que ha borrado si se realizó el guardado con éxito.
-1. `boolean actualizarEvento(Evento evento)`: actualizará el evento pasado. Devolverá `true` si la actualización finaliza con éxito.
+1. `Collection<? extends Evento> getEventos()`: devolverá todos los eventos.
+1. `Collection<? extends Evento> getEventos(Date fecha)`: devolverá todos los eventos para la fecha pedida
+1. `<T extends Evento> int guardarEventos(T... eventos)`: almacenará el/los evento/s pasados. Devolverá el número de eventos guardados con éxito.
+1. `<T extends Evento> T borrarEvento(T evento)`: borrará el evento pasado. Devolverá el evento que ha borrado si se realizó el guardado con éxito.
+1. `<T extends Evento> boolean actualizarEvento(T evento)`: actualizará el evento pasado. Devolverá `true` si la actualización finaliza con éxito.
 
 ```java
 public interface EventoDAO {
@@ -15,7 +15,7 @@ public interface EventoDAO {
     Collection<? extends Evento> getEventos();
     Collection<? extends Evento> getEventos(Date fecha);
     <T extends Evento> int guardarEventos(T... eventos);
-    <T extends Evento> T removeEvento(T evento);
+    <T extends Evento> T borrarEvento(T evento);
     <T extends Evento> boolean actualizarEvento(T evento);
     
 }
